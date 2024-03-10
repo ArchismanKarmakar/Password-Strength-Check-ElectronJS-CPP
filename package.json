@@ -1,0 +1,22 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "cmake-js compile",
+    "start": "node index.js"
+  },
+  "author": "AtiqGauri",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AtiqGauri/Nodejs-Napi-Addon-Using-Cmake.git"
+  },
+  "dependencies": {
+    "node-addon-api": "^3.0.0"
+  },
+  "devDependencies": {
+    "cmake-js": "^6.1.0"
+  }
+}
