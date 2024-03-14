@@ -1,22 +1,21 @@
 {
-  "name": "test",
+  "name": "password-strength",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Password Strength Measuring or checking application.",
+  "main": "main.js",
   "scripts": {
-    "install": "cmake-js compile",
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "install-commented": "cmake-js compile electron node-addon-api toastify-js",
+    "preinstall-commented": "npm config set cmake_js_arch ia32"
   },
-  "author": "AtiqGauri",
+  "author": "Archisman Karmakar",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/AtiqGauri/Nodejs-Napi-Addon-Using-Cmake.git"
-  },
   "dependencies": {
-    "node-addon-api": "^3.0.0"
-  },
-  "devDependencies": {
-    "cmake-js": "^6.1.0"
+    "cmake-js": "^7.3.0",
+    "compile": "^0.0.2",
+    "electron": "^29.1.0",
+    "node-addon-api": "^8.0.0",
+    "toastify-js": "^1.12.0"
   }
 }

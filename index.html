@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Password Strength Checker</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="assets/css/primary.css">
+
+</head>
+<!-- Compiled and minified CSS -->
+
+<!-- Compiled and minified JavaScript -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+<script src="renderer.js"></script>
+
+<script src="assets/js/primary.js"></script>
+
+<body>
+    <!-- <h1>Hello World!</h1> -->
+    <!-- We are using Node.js <span id="node-version"></span>,
+        Chromium <span id="chrome-version"></span>,
+        and Electron <span id="electron-version"></span>. -->
+    <!-- <div class="text-center"> -->
+
+    <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary border-bottom border-body" data-bs-theme="dark">
+        <div class="container">
+            <!-- <a class="navbar-brand" href="#">Navbar w/ text</a> -->
+            <div class="" onclick="location.href='index.html'">
+                <img id="img-primary-logo" src="assets/icon/password.png" alt="lock"
+                    class="rounded float-start img-fluid">
+            </div>
+            <div id="heading-ceyfefeo" class="">
+                <span class=" ">Password Strength Checker</span>
+            </div>
+            <div id="heading-deyfefeo" class="">
+                <span class="">ZXCVBN Algorithm</span>
+            </div>
+            <div class="">
+                <span class="primary-header-auth-link"><a href="https://www.github.com/ArchismanKarmakar"><img
+                            id="primary-repo-github-target" src="assets/icon/github-dark.png" alt="lock"
+                            class="rounded float-start img-fluid"></a></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- <nav class="navbar bg-light border-bottom border-body" data-bs-theme="light">
+        <div class="text-center container">
+
+            <div class="row justify-content-lg-center">
+                <div class="col-lg-1" onclick="location.href='index.html'">
+                    <img id="img-primary-logo" src="./assets/icon/logo.png" alt="lock"
+                        class="rounded float-start img-fluid">
+                </div>
+                <div class="col-lg-6">
+                    <span class="monospace fs-3 ">Password Strength Checker</span>
+                </div>
+                <div class="col-lg-4">
+                    <span class="monospace fs-3 ">ZXCVBN Algorithm</span>
+                </div>
+                <div class="col-lg-1">
+                    <span class="monospace fs-3 primary-header-auth-link"><a
+                            href="https://www.github.com/ArchismanKarmakar"><img id="primary-repo-github-target"
+                                src="assets/icon/github.png" alt="lock"
+                                class="rounded float-start img-fluid"></a></span>
+                </div>
+            </div>
+        </div>
+    </nav> -->
+
+    <div class="container text-center">
+        <div class="container px-5 text-center">
+            <div class="row gx-5">
+                <div class="col">
+                    <div class="p-3"> </div>
+                </div>
+
+            </div>
+            <div id="sfy3of" class="row container">How secure is your password ?</div>
+            <div class="row gx-5">
+                <div class="col">
+                    <div class="p-3"></div>
+                </div>
+
+                <div class="col">
+                    <div class="p-3"> </div>
+                </div>
+            </div>
+            <div id="tip-sfue" class="p-2">Tip: Try to make your passwords at least 18 characters long.</div>
+        </div>
+        <div class="row container">
+            <div class="input-group input-group-lg">
+                <!-- <span class="input-group-text" id="inputGroup-sizing-lg">Test your password</span> -->
+                <input id="primary-password" type="password" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-lg" placeholder="Test your password" oninput="logChange()">
+                <button id="show-hide-password-icio-btn" onclick="passChkBoxToggle()" type="button"
+                    class="btn btn-outline-secondary"><img id="show-hide-password-icio" src="assets/icon/show-pwd.png"
+                        class="rounded img-fluid" alt="lock"></button>
+                <button id="copy-password-icio-btn" type="button" onclick="copyToClipboard();" class="btn btn-outline-secondary"><img
+                        id="copy-password-icio" src="assets/icon/copy.png" class="rounded img-fluid"
+                        alt="lock"></button>
+            </div>
+            <div class="container">
+                <div id="progress-parent" class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="1"
+                    aria-valuemin="0" aria-valuemax="100">
+                    <div id="progress-percent-set" class="progress-bar progress-bar-striped progress-bar-animated bg-danger" style="width: 1%;">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div id="chars-feohw4" class="row">
+                    <div class="col">
+                        <div class="p-1">
+                            Total characters: <span id="total-characters">0</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-1"><span id="lwtxt">Lower case</span> <span id="lw-case"></span></div>
+                    </div>
+                    <div class="col">
+                        <div class="p-1"><span id="uptxt">Upper Case</span> <span id="up-case"></span></div>
+                    </div>
+                    <div class="col">
+                        <div class="p-1"><span id="numstxt">Digits</span> <span id="nums"></span></div>
+                    </div>
+                    <div class="col">
+                        <div class="p-1"><span id="spctxt">Special characters</span> <span id="specialchars"></span>
+                        </div>
+                    </div>
+                    <!-- <div class="col">
+                        <div class="p-1"><input id="passInputChkBox" class="form-check-input me-1"
+                                aria-label="Show-Hide-Check-Box" type="checkbox" onclick="passChkBoxToggle()"> <span
+                                id="chk-box-pass">Show
+                                Password</span></span>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="container">
+                <div id="f4ytwfyhv" class="">Password Entropy: <span id="entropy">0</span></div>
+            </div>
+            <!-- <div class="container row">
+                <div class="input-group input-group-lg p-3 col">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Enter guesses per second </span>
+                    <input id="timetocrack" type="number" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-lg" placeholder="A typical Ryzen 9 machine will have around 1T gps" oninput="logChangeTime()">
+                </div>
+                <div class="container col col-lg-4">
+                    <div id="eagwegwegw" class=""><span>Time to crack your password</span></div>
+                    <div id="eagwegwegr" class=""><span id="time-to-crack">0 seconds</span></div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- <div class="col lg-col-3">
+                <div class="p-5">
+                    <div class="container">
+                        <img id="hack-fhubg" src="assets/icon/pass-3.jpg" alt="lock" class="rounded img-fluid">
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="col col-lg-12">
+                <div class="p-5">
+                    <span id="pass-sesgbeiug">Check your password strength before you get hacked!</span>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div id="cardugeowg" class="container card text-center">
+                <div class="card-body">
+                    <h5 id="card-afcwf" class="card-title">What is password brute-forcing?</h5>
+                    <p id="card-dfefeav" class="card-text">Trying out all possible combinations of characters until the
+                        “correct
+                        answer” is found.
+                        This process can take a very long time, so dictionaries and lists of common passwords like
+                        "qwerty"
+                        or
+                        "123456" are usually used.</p>
+                </div>
+            </div>
+            <div id="cardugeowh" class="container card text-center">
+                <div class="card-body">
+                    <h5 id="card-afcwh" class="card-title">How we check your password strength ?</h5>
+                    <p id="card-dfefeah" class="card-text">ZXCVBN stands behind the scenes in many applications,
+                        analyzing
+                        your
+                        password strength. It checks various aspects like dictionary words, common keyboard patterns,
+                        and
+                        character variations. Imagine a meter - the more diverse your password (mixing uppercase,
+                        lowercase,
+                        numbers, and symbols, avoiding dictionary words and predictable patterns), the higher your score
+                        and
+                        stronger your password.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- div.container.text-center -->
+    <!-- <div class=""g-col-2 g-col-md-2><span class="font-monospace fs-1">How strong is your password ?</span></div> -->
+    <!-- </div> -->
+    <!-- EXPERIMENTAL CSS GRID -->
+    <!-- <div class="grid text-center">
+        <div class="g-col-6 g-col-md-4">.g-col-6 .g-col-md-4</div>
+        <div class="g-col-6 g-col-md-4">.g-col-6 .g-col-md-4</div>
+        <div class="g-col-6 g-col-md-4">.g-col-6 .g-col-md-4</div>
+      </div> -->
+</body>
+
+</html>

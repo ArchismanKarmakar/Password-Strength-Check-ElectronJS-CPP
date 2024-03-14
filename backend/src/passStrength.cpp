@@ -1795,7 +1795,7 @@ void ZxcvbnFreeInfo(ZxcMatch_t *Info)
 
 const char *UsrDict[] =
     {
-        "Onename.Twoname@passStrengthCheck.com", "Onename", "Twoname", "passStrengthCheck.com", "passStrengthCheck",
+        "Onename.Twoname@passStrengthChk.com", "Onename", "Twoname", "passStrengthChk.com", "passStrengthChk",
         0};
 
 static double CalcPass(const char *Pwd, int Quiet)
@@ -2021,7 +2021,7 @@ int DoChecks(char *file)
 
 // Path: backend/src/passStrength.cpp
 
-double passStrengthCheck::passStrengthChk(string x, string yVoid)
+double passStrengthChk::passStrengthChk(string x, string yVoid)
 {
     int i, Quiet, Checks, White;
     Quiet = 0;
@@ -2087,7 +2087,7 @@ double passStrengthCheck::passStrengthChk(string x, string yVoid)
 //     return x+y;
 // }
 
-Napi::Number passStrengthCheck::addWrapped(const Napi::CallbackInfo &info)
+Napi::Number passStrengthChk::addWrapped(const Napi::CallbackInfo &info)
 {
     Napi::Env env = info.Env();
     // check if arguments are integer only.
@@ -2101,16 +2101,16 @@ Napi::Number passStrengthCheck::addWrapped(const Napi::CallbackInfo &info)
     // Napi::Number first = info[0].As<Napi::Number>();
     // Napi::Number second = info[1].As<Napi::Number>();
     // run c++ function return value and return it in javascript
-    Napi::Number returnValue = Napi::Number::New(env, passStrengthCheck::passStrengthChk(first, second));
-    // Napi::Number returnValue = Napi::Number::New(env, passStrengthCheck::add(first.Int32Value(), second.Int32Value()));
+    Napi::Number returnValue = Napi::Number::New(env, passStrengthChk::passStrengthChk(first, second));
+    // Napi::Number returnValue = Napi::Number::New(env, passStrengthChk::add(first.Int32Value(), second.Int32Value()));
 
     return returnValue;
 }
-Napi::Object passStrengthCheck::Init(Napi::Env env, Napi::Object exports)
+Napi::Object passStrengthChk::Init(Napi::Env env, Napi::Object exports)
 {
     // export Napi function
-    exports.Set("passStrengthChk", Napi::Function::New(env, passStrengthCheck::addWrapped));
-    // exports.Set("add", Napi::Function::New(env, passStrengthCheck::addWrapped));
+    exports.Set("passStrengthChk", Napi::Function::New(env, passStrengthChk::addWrapped));
+    // exports.Set("add", Napi::Function::New(env, passStrengthChk::addWrapped));
     return exports;
 }
 

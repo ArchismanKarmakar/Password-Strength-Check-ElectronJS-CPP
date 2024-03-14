@@ -10,7 +10,7 @@
 
 using namespace std;
 
-namespace passStrengthCheck
+namespace passStrengthChk
 {
     // add number function
     double passStrengthChk(string x, string yVoid);

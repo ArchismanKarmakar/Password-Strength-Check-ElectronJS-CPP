@@ -1,0 +1,3 @@
+/home/archisman/Desktop/Password-Strength/backend/build/CMakeFiles/passStrengthChk.dir
+/home/archisman/Desktop/Password-Strength/backend/build/CMakeFiles/edit_cache.dir
+/home/archisman/Desktop/Password-Strength/backend/build/CMakeFiles/rebuild_cache.dir
