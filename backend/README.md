@@ -13,6 +13,3 @@ cd Password-Strength-Check-ElectronJS-CPP
 npm install
 npm start
 ```
-
-### License         
-[MIT](https://github.com/ArchismanKarmakar/Password-Strength-Check-ElectronJS-CPP/blob/master/LICENSE)
