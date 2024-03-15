@@ -1,6 +1,6 @@
 const { app, BrowserWindow } = require('electron/main')
 const path = require('node:path')
-const {passStrengthCheck} = require("./backend/build/Release/passStrengthChk.node");
+const { passStrengthCheck } = require("./backend/build/Release/passStrengthChk.node");
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -11,17 +11,20 @@ function createWindow() {
             nodeIntegration: true,
             nodeIntegrationInWorker: true,
             contextIsolation: false,
+            devTools: false,
         },
         icon: path.join(__dirname, '/assets/icon/password.png'),
     })
     win.loadFile('index.html')
-    const {ipcMain} = require('electron')
+    const { ipcMain } = require('electron')
+
+    win.setMenuBarVisibility(false)
 
     ipcMain.on('asynchronous-message', (event, arg) => {
 
-      event.sender.send('asynchronous-reply', arg);
-  
-      });
+        event.sender.send('asynchronous-reply', arg);
+
+    });
 }
 
 app.whenReady().then(() => {
@@ -46,28 +49,28 @@ app.whenReady().then(() => {
 //         contextIsolation: false // separate context btw internal logic and website in webContents (make 'require' work)
 //       }
 //     })
-  
+
 //     // and load the index.html of the app.
 //     mainWindow.loadFile('index.html')
 
 //     mainWindow.webContents.openDevTools()
-  
+
 //     const {ipcMain} = require('electron')
 
 //     ipcMain.on('asynchronous-message', (event, arg) => {
 
 //       event.sender.send('asynchronous-reply', arg);
-  
+
 //       });
 //   }
 //   app.whenReady().then(() => {
 //     createWindow()
-    
+
 //     app.on('activate', function () {
 //       if (BrowserWindow.getAllWindows().length === 0) createWindow()
 //     })
 //   })
-  
+
 //   app.on('window-all-closed', function () {
 //     if (process.platform !== 'darwin') app.quit()
 //   })

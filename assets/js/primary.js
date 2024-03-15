@@ -9,12 +9,12 @@ function strength() {
     var entr = document.getElementById("entropy").innerHTML;
     var progressBarParent = document.getElementById("progress-parent");
     var progressBar = document.getElementById("progress-percent-set");
-    if(parseFloat(entr)>120){
+    if (parseFloat(entr) > 120) {
         progressBarParent.setAttribute("aria-valuenow", 80);
         progressBar.style.width = 80 + '%';
         progressBar.classList.remove('bg-danger');
         progressBar.classList.add('bg-info');
-    }else if(parseFloat(entr)>150){
+    } else if (parseFloat(entr) > 150) {
         progressBarParent.setAttribute("aria-valuenow", 100);
         progressBar.style.width = 100 + '%';
         progressBar.classList.remove('bg-info');
@@ -97,49 +97,92 @@ function logChange() {
     var entr = document.getElementById("entropy").innerHTML;
     var progressBarParent = document.getElementById("progress-parent");
     var progressBar = document.getElementById("progress-percent-set");
-    if(parseFloat(entr)<25){
-        progressBarParent.setAttribute("aria-valuenow", 1);
-        progressBar.style.width = 1 + '%';
-        progressBar.classList.remove('bg-warning' , 'bg-info' , 'bg-success');
+
+    if (parseFloat(entr) >= 25 && parseFloat(entr) <= 120) {
+        let val = (75 / 100) * parseFloat(entr);
+        progressBarParent.setAttribute("aria-valuenow", val);
+        progressBar.style.width = val + '%';
+        if (val < 25) {
+            progressBar.classList.remove('bg-warning', 'bg-info', 'bg-success');
+            progressBar.classList.add('bg-danger');
+        }
+        if (val >= 25 && val < 50) {
+            progressBar.classList.remove('bg-danger', 'bg-info', 'bg-success');
+            progressBar.classList.add('bg-warning');
+        }
+        if (val >= 50) {
+            progressBar.classList.remove('bg-danger', 'bg-warning', 'bg-success');
+            progressBar.classList.add('bg-info');
+        }
+    }
+
+    if (parseFloat(entr) < 25) {
+        progressBarParent.setAttribute("aria-valuenow", 2);
+        progressBar.style.width = 2 + '%';
+        progressBar.classList.remove('bg-warning', 'bg-info', 'bg-success');
         progressBar.classList.add('bg-danger');
     }
-    if(parseFloat(entr)>35){
-        progressBarParent.setAttribute("aria-valuenow", 25);
-        progressBar.style.width = 25 + '%';
-        progressBar.classList.remove('bg-warning' , 'bg-info' , 'bg-success');
-        progressBar.classList.add('bg-danger');
-    }
-    if(parseFloat(entr)>50){
-        progressBarParent.setAttribute("aria-valuenow", 40);
-        progressBar.style.width = 40 + '%';
-        progressBar.classList.remove('bg-danger' , 'bg-info' , 'bg-success');
-        progressBar.classList.add('bg-warning');
-    }
-    if(parseFloat(entr)>75){
-        progressBarParent.setAttribute("aria-valuenow", 50);
-        progressBar.style.width = 50 + '%';
-        progressBar.classList.remove('bg-danger' , 'bg-info' , 'bg-success');
-        progressBar.classList.add('bg-warning');
-    }
-    if(parseFloat(entr)>100){
-        progressBarParent.setAttribute("aria-valuenow", 70);
-        progressBar.style.width = 70 + '%';
-        progressBar.classList.remove('bg-danger' , 'bg-warning' , 'bg-success');
-        progressBar.classList.add('bg-info');
-    }
-    if(parseFloat(entr)>120){
-        progressBarParent.setAttribute("aria-valuenow", 80);
-        progressBar.style.width = 80 + '%';
-        progressBar.classList.remove('bg-danger' , 'bg-info' , 'bg-warning');
+    // if (parseFloat(entr) > 35) {
+    //     progressBarParent.setAttribute("aria-valuenow", 20);
+    //     progressBar.style.width = 25 + '%';
+    //     progressBar.classList.remove('bg-warning', 'bg-info', 'bg-success');
+    //     progressBar.classList.add('bg-danger');
+    // }
+    // if (parseFloat(entr) > 50) {
+    //     progressBarParent.setAttribute("aria-valuenow", 40);
+    //     progressBar.style.width = 40 + '%';
+    //     progressBar.classList.remove('bg-danger', 'bg-info', 'bg-success');
+    //     progressBar.classList.add('bg-warning');
+    // }
+    // if (parseFloat(entr) > 75) {
+    //     progressBarParent.setAttribute("aria-valuenow", 50);
+    //     progressBar.style.width = 50 + '%';
+    //     progressBar.classList.remove('bg-danger', 'bg-info', 'bg-success');
+    //     progressBar.classList.add('bg-warning');
+    // }
+    // if (parseFloat(entr) > 100) {
+    //     progressBarParent.setAttribute("aria-valuenow", 70);
+    //     progressBar.style.width = 70 + '%';
+    //     progressBar.classList.remove('bg-danger', 'bg-warning', 'bg-success');
+    //     progressBar.classList.add('bg-info');
+    // }
+    // if (parseFloat(entr) > 120) {
+    //     progressBarParent.setAttribute("aria-valuenow", 80);
+    //     progressBar.style.width = 80 + '%';
+    //     progressBar.classList.remove('bg-danger', 'bg-info', 'bg-warning');
+    //     progressBar.classList.add('bg-success');
+    // }
+    if (parseFloat(entr) >= 120 && ((special >= 1 || num >= 1 && upcase >= 1) || (special >= 1 && num >= 1 || upcase >= 1))) {
+        progressBarParent.setAttribute("aria-valuenow", 75);
+        progressBar.style.width = 90 + '%';
+        progressBar.classList.remove('bg-info', 'bg-danger', 'bg-warning');
         progressBar.classList.add('bg-success');
     }
-    if(parseFloat(entr)>150){
+    if (parseFloat(entr) >= 120 && ((special >= 1 || num >= 2) && upcase >= 1) || (special >= 1 && num >= 2 || upcase >= 1)) {
+        progressBarParent.setAttribute("aria-valuenow", 80);
+        progressBar.style.width = 90 + '%';
+        progressBar.classList.remove('bg-info', 'bg-danger', 'bg-warning');
+        progressBar.classList.add('bg-success');
+    }
+    if (parseFloat(entr) >= 130 && (((special >= 1) && (num >= 2 || upcase >= 2)) || (special >= 2 || num >= 2 || upcase >= 2))) {
+        progressBarParent.setAttribute("aria-valuenow", 85);
+        progressBar.style.width = 90 + '%';
+        progressBar.classList.remove('bg-info', 'bg-danger', 'bg-warning');
+        progressBar.classList.add('bg-success');
+    }
+    if (parseFloat(entr) >= 130 && ((special >= 2) && ((num >= 2) || (upcase >= 2))) || ((special >= 2) || (num >= 2) && (upcase >= 2))) {
         progressBarParent.setAttribute("aria-valuenow", 90);
         progressBar.style.width = 90 + '%';
-        progressBar.classList.remove('bg-info', 'bg-danger' , 'bg-warning');
+        progressBar.classList.remove('bg-info', 'bg-danger', 'bg-warning');
         progressBar.classList.add('bg-success');
     }
-    if(parseFloat(entr)>150 && special >= 2 && num >= 2 && upcase >= 3){
+    if (parseFloat(entr) > 140 && special >= 2 && num >= 3 && upcase >= 3) {
+        progressBarParent.setAttribute("aria-valuenow", 95);
+        progressBar.style.width = 90 + '%';
+        progressBar.classList.remove('bg-info', 'bg-danger', 'bg-warning');
+        progressBar.classList.add('bg-success');
+    }
+    if (parseFloat(entr) >= 150 && special >= 3 && num >= 4 && upcase >= 3) {
         progressBarParent.setAttribute("aria-valuenow", 100);
         progressBar.style.width = 100 + '%';
         progressBar.classList.remove('bg-info');

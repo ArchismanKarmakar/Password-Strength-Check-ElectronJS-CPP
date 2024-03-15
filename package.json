@@ -1,6 +1,6 @@
 {
-  "name": "password-strength",
-  "version": "1.0.0",
+  "name": "password-strength-checker-using-electronjs-cpp",
+  "version": "2.3.0",
   "description": "Password Strength Measuring or checking application.",
   "main": "main.js",
   "scripts": {
