@@ -48,7 +48,7 @@
     "files": [
       "assets/**/*",
       "build/**/*",
-      "backend/**/*",
+      "backend/build/Release/**/*",
       "index.html",
       "node_modules/**/*",
       "package.json",
