@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC -DBUILDING_NODE_EXTENSION -O3 -DNDEBUG -shared -Wl,-soname,passStrengthChk.node -o Release/passStrengthChk.node CMakeFiles/passStrengthChk.dir/src/passStrength.cpp.o 
