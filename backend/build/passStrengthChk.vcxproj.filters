@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Archisman\Desktop\Password-Strength-Check-ElectronJS-CPP\backend\src\passStrength.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Archisman\Desktop\Password-Strength-Check-ElectronJS-CPP\backend\node_modules\cmake-js\lib\cpp\win_delay_load_hook.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Archisman\Desktop\Password-Strength-Check-ElectronJS-CPP\backend\src\passStrength.hh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Archisman\Desktop\Password-Strength-Check-ElectronJS-CPP\backend\src\zxcvbn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Archisman\Desktop\Password-Strength-Check-ElectronJS-CPP\backend\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{7EEFBF67-BBD6-306F-9353-576FD253C794}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{C4CB20A9-E5D6-3302-A21F-007401725A36}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

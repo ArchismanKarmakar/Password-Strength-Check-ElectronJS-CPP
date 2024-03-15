@@ -1,15 +1,15 @@
 #include "./passStrength.hh"
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <sys/time.h>
+#include <time.h>
 // #include "./zxcvbn.h"
 
 /* For pre-compiled headers under windows */
-#ifdef _WIN32
-#include "stdafx.h"
-#endif
+// #ifdef _WIN32
+// #include "stdafx.h"
+// #endif
 
 
 
@@ -36,9 +36,9 @@
 #endif
 
 /* For pre-compiled headers under windows */
-#ifdef _WIN32
-#include "stdafx.h"
-#endif
+// #ifdef _WIN32
+// #include "stdafx.h"
+// #endif
 
 /* Minimum number of characters in a incrementing/decrementing sequence match */
 #define MIN_SEQUENCE_LEN 3
@@ -1805,13 +1805,13 @@ static double CalcPass(const char *Pwd, int Quiet)
     // {
     /* Output the details of how the entropy figure was calculated */
     int Len, ChkLen;
-    struct timeval t1, t2;
+    // struct timeval t1, t2;
     ZxcMatch_t *Info, *p;
     double m = 0.0;
 
-    gettimeofday(&t1, 0);
+    // gettimeofday(&t1, 0);
     e = ZxcvbnMatch(Pwd, UsrDict, &Info);
-    gettimeofday(&t2, 0);
+    // gettimeofday(&t2, 0);
     for (p = Info; p; p = p->Next)
         m += p->Entrpy;
 
@@ -1904,9 +1904,9 @@ static double CalcPass(const char *Pwd, int Quiet)
         p = p->Next;
     }
     ZxcvbnFreeInfo(Info);
-    t2.tv_sec -= t1.tv_sec;
-    t2.tv_usec -= t1.tv_usec;
-    t2.tv_usec += t2.tv_sec * 1000000;
+    // t2.tv_sec -= t1.tv_sec;
+    // t2.tv_usec -= t1.tv_usec;
+    // t2.tv_usec += t2.tv_sec * 1000000;
     // printf("    Calculation Time %.2fms\n", t2.tv_usec / 1000.0);
     // if (ChkLen != Len)
     // printf("*** Password length (%d) != sum of length of parts (%d) ***\n", Len, ChkLen);

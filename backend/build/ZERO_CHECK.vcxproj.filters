@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Archisman\Desktop\Password-Strength-Check-ElectronJS-CPP\backend\build\CMakeFiles\0425d94a1e62c05759acd40477f4d0da\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{A862F37F-CDBE-3257-AE3F-EBCFCB4721CB}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

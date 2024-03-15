@@ -1,3 +1,3 @@
-/home/archisman/Desktop/Password-Strength/backend/build/CMakeFiles/passStrengthChk.dir
-/home/archisman/Desktop/Password-Strength/backend/build/CMakeFiles/edit_cache.dir
-/home/archisman/Desktop/Password-Strength/backend/build/CMakeFiles/rebuild_cache.dir
+C:/Users/Archisman/Desktop/Password-Strength-Check-ElectronJS-CPP/backend/build/CMakeFiles/passStrengthChk.dir
+C:/Users/Archisman/Desktop/Password-Strength-Check-ElectronJS-CPP/backend/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Archisman/Desktop/Password-Strength-Check-ElectronJS-CPP/backend/build/CMakeFiles/ZERO_CHECK.dir

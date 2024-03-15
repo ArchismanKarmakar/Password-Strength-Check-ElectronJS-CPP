@@ -1,0 +1,10 @@
+^C:\USERS\ARCHISMAN\DESKTOP\PASSWORD-STRENGTH-CHECK-ELECTRONJS-CPP\BACKEND\BUILD\CMAKEFILES\0425D94A1E62C05759ACD40477F4D0DA\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Archisman/Desktop/Password-Strength-Check-ElectronJS-CPP/backend -BC:/Users/Archisman/Desktop/Password-Strength-Check-ElectronJS-CPP/backend/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Archisman/Desktop/Password-Strength-Check-ElectronJS-CPP/backend/build/passStrengthChk.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
