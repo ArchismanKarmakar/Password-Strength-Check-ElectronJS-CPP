@@ -38,7 +38,7 @@
       "buildResources": "assets"
     },
     "win": {
-      "icon": "assets/icon/logo.png",
+      "icon": "assets/icon/password.png",
       "target": [
         "nsis",
         "portable",
