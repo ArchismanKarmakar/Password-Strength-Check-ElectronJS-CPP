@@ -1,0 +1,22 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "cmake-js compile",
+    "start": "node index.js"
+  },
+  "author": "Archisman Karmakar",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArchismanKarmakar/Password-Strength-Check-ElectronJS-CPP.git"
+  },
+  "dependencies": {
+    "node-addon-api": "^8.0.0"
+  },
+  "devDependencies": {
+    "cmake-js": "^7.3.0"
+  }
+}

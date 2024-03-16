@@ -1,0 +1,80 @@
+{
+  "name": "password-strength-checker-using-electronjs-cpp",
+  "homepage": "https://github.com/ArchismanKarmakar/Password-Strength-Check-ElectronJS-CPP",
+  "version": "2.3.0",
+  "description": "Password Strength Measuring or checking application.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "install-commented": "cmake-js compile electron node-addon-api toastify-js",
+    "preinstall-commented": "npm config set cmake_js_arch ia32",
+    "package": "build",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "build": "electron-builder"
+  },
+  "author": "Archisman Karmakar <author@domain.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cmake-js": "^7.3.0",
+    "compile": "^0.0.2",
+    "node-addon-api": "^8.0.0",
+    "toastify-js": "^1.12.0"
+  },
+  "devDependencies": {
+    "cmake-js": "^7.3.0",
+    "compile": "^0.0.2",
+    "electron": "^29.1.0",
+    "electron-builder": "^24.13.3",
+    "node-addon-api": "^8.0.0",
+    "toastify-js": "^1.12.0"
+  },
+  "build": {
+    "appId": "com.ArchismanKarmakar.password-strength-checker",
+    "productName": "Password Strength Checker",
+    "directories": {
+      "output": "build",
+      "buildResources": "assets"
+    },
+    "linux": {
+      "icon": "assets/icon/password.png",
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm",
+        "snap"
+      ]
+    },
+    "files": [
+      "assets/**/*",
+      "build/**/*",
+      "backend/**/*",
+      "index.html",
+      "node_modules/**/*",
+      "package.json",
+      "main.js",
+      "preload.js",
+      "renderer.js"
+    ],
+    "nsis": {
+      "artifactName": "${productName}-installer-${version}.${ext}",
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
+      "removeDefaultUninstallWelcomePage": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "portable": {
+      "artifactName": "${productName}-portable-${version}.${ext}"
+    },
+    "msi": {
+      "artifactName": "${productName}-installer-${version}.${ext}",
+      "createStartMenuShortcut": true,
+      "oneClick": false,
+      "perMachine": true,
+      "createDesktopShortcut": true
+    }
+  }
+}
